@@ -1,0 +1,79 @@
+<!---->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CDN Links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Press Start 2P';
+            font-size: 15px;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+    <title>Markov Chain Text Generator</title>
+</head>
+
+<body style="background-color:black;">
+    <h1>Markov Chain Text Generator</h1>
+    <blockquote>
+        Markov Chains allow the prediction of a future state based on the characteristics of a present state. Suitable
+        for text, the principle of Markov chain can be turned into a sentences generator.
+    </blockquote>
+    <p>Note: The generator is in its early stages so it generates improper sentences without caring for the sentence
+        structure. Modifications will be made in the next update.</p>
+    <hr style="border-top: dotted 4px;" />
+    <form action="/markov" method="POST" id="data">
+        <p>Choose an example corpus (large and structured set of texts) to train the generator on:</p>
+        <input type="radio" name="corpus" id="hamlet" value="hamlet"> Hamlet </input>&nbsp;
+        <input type="radio" name="corpus" id="ts_eliot" value="ts_eliot"> TS Eliot </input>&nbsp;
+        <input type="radio" name="corpus" id="trump_speech" value="trump_speech"> Trump Speech </input>
+        <span style="display:block; height: 10px;"></span>
+        <p>(OR)</p>
+        <p>Enter your own text corpus:</p>
+        <div class="form-group">
+            <textarea name="text" class="form-control rounded-0" id="textarea" rows="6"
+                style="width:80%;margin-right:10%;"></textarea>
+        </div>
+        <span style="display:block; height: 10px;"></span>
+        <p>Select length of generated text:</p>
+        <input type="radio" name="size" id="small" value="small" required> Small </input>&nbsp;
+        <input type="radio" name="size" id="medium" value="medium"> Medium </input>&nbsp;
+        <input type="radio" name="size" id="large" value="large"> Large </input>
+        <span style="display:block; height: 10px;"></span>
+        <p>Select type of Markov Chain:</p>
+        <input type="radio" name="type" id="ngram" value="ngram" required> n-gram </input>&nbsp;
+        <input type="radio" name="type" id="word" value="word"> Word Markov </input>&nbsp;
+        <span style="display:block; height: 10px;"></span>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+    <script>
+        function check(evt) {
+            if ((($('input[name=corpus]:checked').length > 0) ^ document.getElementById("textarea").value != '') == false) {
+                alert("Select either an example corpus OR enter own text.")
+                evt.preventDefault();
+            }
+        }
+        document.getElementById('data').addEventListener("submit", check);
+    </script>
+    <footer style="bottom: 0; position: fixed; width: 100%;">
+        <div class="footer" style="height: 40px; margin: auto; width: 400px; text-align: center; padding: 5px;">
+            Made with ❤️ by <a href="https://github.com/itsron717/markov-gen">Rounak</a>
+        </div>
+    </footer>
+</body>
+
+</html>

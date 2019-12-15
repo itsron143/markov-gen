@@ -1,0 +1,44 @@
+<!---->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CDN Links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Press Start 2P';
+            font-size: 15px;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+    <title>Markov Chain Text Generator</title>
+</head>
+
+<body style="background-color:black;">
+    <h1>Markov Chain Text Generator</h1>
+    <hr style="border-top: dotted 4px;" />
+    <h3>Result:</h3>
+    {{ data }}
+    <span style="display:block; height: 10px;"></span>
+    <a class="btn btn-primary" href="{{ url_for("index") }}" role="button">Try again</a>
+    <footer style="bottom: 0; position: fixed; width: 100%;">
+        <div class="footer" style="height: 100px; margin: auto; width: 400px; text-align: center; padding: 5px;">
+            Made with ❤️ by <a href="https://github.com/itsron717/markov-gen">Rounak</a>
+        </div>
+    </footer>
+</body>
+
+</html>
