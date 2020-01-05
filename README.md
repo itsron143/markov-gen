@@ -30,7 +30,7 @@ _Note_ - The generator is in its early stages so it generates improper sentences
 - Install the required packages
 
   ```
-  $ pip install requirements.txt
+  $ pip install -r requirements.txt
   ```
 
 - Run the server 
